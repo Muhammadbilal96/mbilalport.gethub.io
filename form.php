@@ -13,17 +13,23 @@ if(isset($_POST['done'])){
     $Subject = $_POST['subject'];
     $Message = $_POST['message'];
 
-    $query = "INSERT INTO `tbl_feedback`(`username`,`email`,`subject`,`message`,) VALUES ('$Name','$email','$Subject','$Message')";
+    $query = "INSERT INTO `tbl_feedback`( `username`, `email`, `subject`, `message`) VALUES ('$Name','$Email','$Subject','$Message')";
 
-    result = mysqli_query($con,$query);
+    print($query);
+
+    $result = mysqli_query($con,$query);
+
+    print($result);
+    
 
     if ($result) {
 		
 		echo '<script>alert("Thnakyou For FeedBack")</script>';
-	  	echo "<script>location.href='index.php'</script>";
+	  echo "<script>location.href='index.html'</script>";
 	}
 	else{
-		echo "<script>location.href='index.php'</script>";
+    echo '<script>alert("Thnakyou Not For FeedBack")</script>';
+		 echo "<script>location.href='index.html'</script>";
 	  	
 	}
 }
